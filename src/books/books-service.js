@@ -64,9 +64,6 @@ const BooksService = {
   serializeBook(book) {
     const bookTree = new Treeize()
 
-    // Some light hackiness to allow for the fact that `treeize`
-    // only accepts arrays of objects, and we want to use a single
-    // object.
     const bookData = bookTree.grow([ book ]).getData()[0]
 
     return {
@@ -88,9 +85,7 @@ const BooksService = {
   serializeBookReview(review) {
     const reviewTree = new Treeize()
 
-    // Some light hackiness to allow for the fact that `treeize`
-    // only accepts arrays of objects, and we want to use a single
-    // object.
+    
     const reviewData = reviewTree.grow([ review ]).getData()[0]
 
     return {
