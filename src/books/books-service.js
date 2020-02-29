@@ -1,5 +1,5 @@
 const xss = require('xss')
-const Treeize = require('treeize')
+const Treesize = require('treesize')
 
 const BooksService = {
   getAllBooks(db) {
@@ -62,7 +62,7 @@ const BooksService = {
   },
 
   serializeBook(book) {
-    const bookTree = new Treeize()
+    const bookTree = new Treesize()
 
     const bookData = bookTree.grow([ book ]).getData()[0]
 
@@ -83,7 +83,7 @@ const BooksService = {
   },
 
   serializeBookReview(review) {
-    const reviewTree = new Treeize()
+    const reviewTree = new Treesize()
 
     
     const reviewData = reviewTree.grow([ review ]).getData()[0]
