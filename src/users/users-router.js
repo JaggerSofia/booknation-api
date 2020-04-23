@@ -3,7 +3,7 @@ const express = require('express')
 const userRouter = express.Router()
 const jsonBodyParser = express.json()
 const path = require('path')
-const UserService = require('./users-server')
+const UsersService = require('./users-server')
 
 userRouter
     .post('/', jsonBodyParser, (req, res, next) => {
@@ -15,13 +15,13 @@ userRouter
                     error: `Missing '${field}' in request body` 
                 })
 
-        const passwordError = UserService.validatePassword(password)
+        const passwordError = UsersService.validatePassword(password)
 
         if (passwordError)
             return res.status(400).json({ 
                 error: passwordError })
         
-        UserService.hasUserWithUserName(
+        UsersService.hasUserWithUserName(
             req.app.get('db'),
             user_name
         )
@@ -46,7 +46,7 @@ userRouter
                                 .then(user => {
                                     res.status(201)
                                         .location(path.posix.join(req.originalUrl, `/${user.id}`))
-                                        .json(UserService.serializeUser(user))
+                                        .json(UsersService.serializeUser(user))
                                 })
                         })
             })
