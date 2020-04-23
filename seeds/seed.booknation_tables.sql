@@ -84,7 +84,7 @@ This memoir—a rich, dazzling story of power, ambition, and identity—ultimate
 
   
 
-INSERT INTO booknation_reviews (text, rating, thing_id, user_id) VALUES 
+INSERT INTO booknation_reviews (text, rating, book_id, user_id) VALUES 
   (
     'This thing is amazing.',
     4,

@@ -9,8 +9,8 @@ const jsonBodyParser = express.json()
 reviewsRouter
   .route('/')
   .post(requireAuth, jsonBodyParser, (req, res, next) => {
-    const { id, rating, text } = req.body
-    const newReview = { id, rating, text }
+    const { id, book_id, rating, text } = req.body
+    const newReview = { id, book_id, rating, text }
 
     for (const [key, value] of Object.entries(newReview))
       if (value == null)

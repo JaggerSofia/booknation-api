@@ -1,1 +1,1 @@
-DROP TABLE IF EXISTS booknation_comments;
+DROP TABLE IF EXISTS booknation_reviews;

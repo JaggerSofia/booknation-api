@@ -6,6 +6,7 @@ const ReviewsService = {
       .from('booknation_reviews AS rev')
       .select(
         'rev.id',
+        'rev.book_id',
         'rev.rating',
         'rev.text',
         'rev.date_created',
@@ -47,6 +48,7 @@ const ReviewsService = {
   serializeReview(review) {
     return {
       id: review.id,
+      book_id: review.book_id,
       rating: review.rating,
       text: xss(review.text),
       id: review.id,
