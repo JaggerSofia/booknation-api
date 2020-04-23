@@ -1,6 +1,7 @@
 module.exports = {
   PORT: process.env.PORT || 8000,
   NODE_ENV: process.env.NODE_ENV || 'development',
-  DB_URL: process.env.DB_URL || 'postgresql://Victoria@localhost/booknation',
+  DATABASE_URL: process.env.DATABASE_URL || 'postgresql://Victoria@localhost/booknation',
+  TEST_DATABASE_URL: process.env.TEST_DATABASE_URL || 'postgresql://Victoria@localhost/booknation-test',
   JWT_SECRET: process.env.JWT_SECRET || 'cat',
 }

@@ -25,12 +25,12 @@ describe("Protected endpoints", function() {
   
     const protectedEndpoints = [
         {
-            name: "GET /api/books/:book_id",
+            name: "GET /api/books/:id",
             path: "/api/books/1",
             method: supertest(app).get
         },
         {
-            name: "GET /api/books/:book_id/reviews",
+            name: "GET /api/books/:id/reviews",
             path: "/api/books/1/reviews",
             method: supertest(app).get
         },

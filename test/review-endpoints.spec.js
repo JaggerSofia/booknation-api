@@ -40,7 +40,7 @@ describe('Reviews Endpoints', function() {
       const newReview = {
         text: 'Test new review',
         rating: 3,
-        book_id: testBook.id,
+        id: testBook.id,
         user_id: testUser.id,
       }
       return supertest(app)
@@ -52,7 +52,7 @@ describe('Reviews Endpoints', function() {
           expect(res.body).to.have.property('id')
           expect(res.body.rating).to.eql(newReview.rating)
           expect(res.body.text).to.eql(newReview.text)
-          expect(res.body.book_id).to.eql(newReview.book_id)
+          expect(res.body.id).to.eql(newReview.id)
           expect(res.body.user.id).to.eql(testUser.id)
           expect(res.headers.location).to.eql(`/api/reviews/${res.body.id}`)
           const expectedDate = new Date().toLocaleString()
@@ -68,7 +68,7 @@ describe('Reviews Endpoints', function() {
             .then(row => {
               expect(row.text).to.eql(newReview.text)
               expect(row.rating).to.eql(newReview.rating)
-              expect(row.book_id).to.eql(newReview.book_id)
+              expect(row.id).to.eql(newReview.id)
               expect(row.user_id).to.eql(newReview.user_id)
               const expectedDate = new Date().toLocaleString()
               const actualDate = new Date(row.date_created).toLocaleString()
@@ -77,7 +77,7 @@ describe('Reviews Endpoints', function() {
         )
     })
 
-    const requiredFields = ['text', 'rating', 'user_id', 'book_id']
+    const requiredFields = ['text', 'rating', 'user_id', 'id']
 
     requiredFields.forEach(field => {
       const testBook = testBooks[0]
@@ -86,7 +86,7 @@ describe('Reviews Endpoints', function() {
         text: 'Test new review',
         rating: 3,
         user_id: testUser.id,
-        book_id: testBook.id,
+        id: testBook.id,
       }
 
       it(`responds with 400 and an error message when the '${field}' is missing`, () => {

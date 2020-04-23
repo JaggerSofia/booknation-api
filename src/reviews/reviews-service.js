@@ -9,7 +9,7 @@ const ReviewsService = {
         'rev.rating',
         'rev.text',
         'rev.date_created',
-        'rev.book_id',
+        'rev.id',
         db.raw(
           `row_to_json(
             (SELECT tmp FROM (
@@ -49,7 +49,7 @@ const ReviewsService = {
       id: review.id,
       rating: review.rating,
       text: xss(review.text),
-      book_id: review.book_id,
+      id: review.id,
       date_created: review.date_created,
       user: review.user || {},
     }

@@ -81,7 +81,7 @@ function makeReviewsArray(users, books) {
       id: 1,
       rating: 2,
       text: 'First test review!',
-      book_id: books[0].id,
+      id: books[0].id,
       user_id: users[0].id,
       date_created: '2029-01-22T16:28:32.615Z',
     },
@@ -89,7 +89,7 @@ function makeReviewsArray(users, books) {
       id: 2,
       rating: 3,
       text: 'Second test review!',
-      book_id: books[0].id,
+      id: books[0].id,
       user_id: users[1].id,
       date_created: '2029-01-22T16:28:32.615Z',
     },
@@ -97,7 +97,7 @@ function makeReviewsArray(users, books) {
       id: 3,
       rating: 1,
       text: 'Third test review!',
-      book_id: books[0].id,
+      id: books[0].id,
       user_id: users[2].id,
       date_created: '2029-01-22T16:28:32.615Z',
     },
@@ -105,7 +105,7 @@ function makeReviewsArray(users, books) {
       id: 4,
       rating: 5,
       text: 'Fourth test review!',
-      book_id: books[0].id,
+      id: books[0].id,
       user_id: users[3].id,
       date_created: '2029-01-22T16:28:32.615Z',
     },
@@ -113,7 +113,7 @@ function makeReviewsArray(users, books) {
       id: 5,
       rating: 1,
       text: 'Fifth test review!',
-      book_id: books[books.length - 1].id,
+      id: books[books.length - 1].id,
       user_id: users[0].id,
       date_created: '2029-01-22T16:28:32.615Z',
     },
@@ -121,7 +121,7 @@ function makeReviewsArray(users, books) {
       id: 6,
       rating: 2,
       text: 'Sixth test review!',
-      book_id: books[books.length - 1].id,
+      id: books[books.length - 1].id,
       user_id: users[2].id,
       date_created: '2029-01-22T16:28:32.615Z',
     },
@@ -129,7 +129,7 @@ function makeReviewsArray(users, books) {
       id: 7,
       rating: 5,
       text: 'Seventh test review!',
-      book_id: books[3].id,
+      id: books[3].id,
       user_id: users[0].id,
       date_created: '2029-01-22T16:28:32.615Z',
     },
@@ -141,7 +141,7 @@ function makeExpectedBook(users, book, reviews=[]) {
     .find(user => user.id === book.user_id)
 
   const bookReviews = reviews
-    .filter(review => review.book_id === book.id)
+    .filter(review => review.id === book.id)
 
   const number_of_reviews = bookReviews.length
   const average_review_rating = calculateAverageReviewRating(bookReviews)
@@ -176,7 +176,7 @@ function calculateAverageReviewRating(reviews) {
 
 function makeExpectedBookReviews(users, bookId, reviews) {
   const expectedReviews = reviews
-    .filter(review => review.book_id === bookId)
+    .filter(review => review.id === bookId)
 
   return expectedReviews.map(review => {
     const reviewUser = users.find(user => user.id === review.user_id)

@@ -15,20 +15,20 @@ booksRouter
   })
 
 booksRouter
-  .route('/:book_id')
+  .route('/:id')
   .all(requireAuth)
   .all(checkBookExists)
   .get((req, res) => {
     res.json(BooksService.serializeBook(res.book))
   })
 
-booksRouter.route('/:book_id/reviews/')
+booksRouter.route('/:id/reviews/')
   .all(requireAuth)
   .all(checkBookExists)
   .get((req, res, next) => {
     BooksService.getReviewsForBook(
       req.app.get('db'),
-      req.params.book_id
+      req.params.id
     )
       .then(reviews => {
         res.json(BooksService.serializeBookReviews(reviews))
@@ -41,7 +41,7 @@ async function checkBookExists(req, res, next) {
   try {
     const book = await BooksService.getById(
       req.app.get('db'),
-      req.params.book_id
+      req.params.id
     )
 
     if (!book)

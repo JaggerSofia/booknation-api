@@ -85,7 +85,7 @@ describe('Books Endpoints', function() {
     })
   })
 
-  describe(`GET /api/books/:book_id`, () => {
+  describe(`GET /api/books/:id`, () => {
     context(`Given no books`, () => {
       beforeEach(() => helpers.seedUsers(db, testUsers))
       it(`responds with 404`, () => {
@@ -149,7 +149,7 @@ describe('Books Endpoints', function() {
     })
   })
 
-  describe(`GET /api/books/:book_id/reviews`, () => {
+  describe(`GET /api/books/:id/reviews`, () => {
     context(`Given no books`, () => {
       beforeEach(() => helpers.seedUsers(db, testUsers))
       it(`responds with 404`, () => {

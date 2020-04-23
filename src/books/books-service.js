@@ -22,7 +22,7 @@ const BooksService = {
       .leftJoin(
         'booknation_reviews AS rev',
         'bks.id',
-        'rev.book_id',
+        'rev.id',
       )
       .leftJoin(
         'booknation_users AS usr',
@@ -38,7 +38,7 @@ const BooksService = {
       .first()
   },
 
-  getReviewsForBook(db, book_id) {
+  getReviewsForBook(db, id) {
     return db
       .from('booknation_reviews AS rev')
       .select(
@@ -48,7 +48,7 @@ const BooksService = {
         'rev.date_created',
         ...userFields,
       )
-      .where('rev.book_id', book_id)
+      .where('rev.id', id)
       .leftJoin(
         'booknation_users AS usr',
         'rev.user_id',
@@ -91,7 +91,7 @@ const BooksService = {
     return {
       id: reviewData.id,
       rating: reviewData.rating,
-      book_id: reviewData.book_id,
+      id: reviewData.id,
       text: xss(reviewData.text),
       user: reviewData.user || {},
       date_created: reviewData.date_created,
