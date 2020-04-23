@@ -35,7 +35,7 @@ const UsersService = {
         return null
     },
 
-    hasPassword(password) {
+    hashPassword(password) {
         return bcrypt.hash(password, 12)
     },
 
