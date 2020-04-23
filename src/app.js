@@ -7,20 +7,20 @@ const { NODE_ENV } = require('./config')
 const booksRouter = require('./books/books-router')
 const reviewsRouter = require('./reviews/reviews-router')
 const authRouter = require('./auth/auth-router')
-const userRouter = require('./users/users-router')
+const usersRouter = require('./users/users-router')
 
 const app = express()
 
-const morganSetting = process.env.NODE_ENV === 'production' ? 'tiny' : 'common'
-app.use(morgan(morganSetting))
-
+app.use(morgan((NODE_ENV === 'production') ? 'tiny' : 'common', {
+  skip: () => NODE_ENV === 'test',
+}))
 app.use(cors())
 app.use(helmet())
 
 app.use('/api/books', booksRouter)
 app.use('/api/reviews', reviewsRouter)
 app.use('/api/auth', authRouter)
-app.use('/api/users', userRouter)
+app.use('/api/users', usersRouter)
 
 app.use(function errorHandler(error, req, res, next) {
   let response
