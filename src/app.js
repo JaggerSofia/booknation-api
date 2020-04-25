@@ -11,11 +11,14 @@ const usersRouter = require('./users/users-router')
 
 const app = express()
 
-app.use(morgan((NODE_ENV === 'production') ? 'tiny' : 'common', {
-  skip: () => NODE_ENV === 'test',
-}))
-app.use(cors())
+const morganOption = (NODE_ENV === 'production')
+  ? 'tiny'
+  : 'common';
+
+app.use(morgan(morganOption))
 app.use(helmet())
+app.use(cors())
+
 
 app.use('/api/books', booksRouter)
 app.use('/api/reviews', reviewsRouter)
