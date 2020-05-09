@@ -1,26 +1,19 @@
-# Express Boilerplate!
+# Get Meals API
 
-This is a boilerplate project used for starting new projects!
+## Database Setup
+To set up the database:
+1. Make sure you are in psql in your command line.
+2. Run the SQL command `CREATE USER reader;`.
+3. Run the SQL command `CREATE DATABASE booknation OWNER reader;`.
+4. Ensure your .env file is created and has the line `DB_URL="postgresql://reader@localhost/booknation"`.
+5. Exit psql and run the command `npm run migrate` to create the tables in the database.
+6. To seed the database with a few locations, run `psql -U reader -d booknation -f ./seeds/seed.locations.sql` in your command line.
 
-## Set up
+### Base URL: https://shrouded-wave-72208.herokuapp.com/api
 
-Complete the following steps to start a new project (NEW-PROJECT-NAME):
+## Overview:
 
-1. Clone this repository to your local machine `git clone BOILERPLATE-URL NEW-PROJECTS-NAME`
-2. `cd` into the cloned repository
-3. Make a fresh start of the git history for this project with `rm -rf .git && git init`
-4. Install the node dependencies `npm install`
-5. Move the example Environment file to `.env` that will be ignored by git and read by the express server `mv example.env .env`
-6. Edit the contents of the `package.json` to use NEW-PROJECT-NAME instead of `"name": "express-boilerplate",`
+This API exists so that users can review a book database so that a review of the book may be given so that future readers can see what others thing of the book.
 
-## Scripts
 
-Start the application `npm start`
-
-Start nodemon for the application `npm run dev`
-
-Run the tests `npm test`
-
-## Deploying
-
-When your new project is ready for deployment, add a new Heroku application with `heroku create`. This will make a new git remote called "heroku" and you can then `npm run deploy` which will push to this remote's master branch.
+By [Victoria Moore](https://github.com/JaggerSofia). 
