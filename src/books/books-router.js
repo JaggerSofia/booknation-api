@@ -15,14 +15,14 @@ booksRouter
   })
 
 booksRouter
-  .route('/:bookId')
+  .route('/:id')
   .all(requireAuth)
   .all(checkBookExists)
   .get((req, res) => {
     res.json(BooksService.serializeBook(res.book))
   })
 
-booksRouter.route('/:bookId/reviews/')
+booksRouter.route('/:id/reviews/')
   .all(requireAuth)
   .all(checkBookExists)
   .get((req, res, next) => {
