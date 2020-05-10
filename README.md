@@ -1,4 +1,4 @@
-# Get Meals API
+# BookNation API
 
 ## Database Setup
 To set up the database:
