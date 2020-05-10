@@ -91,7 +91,7 @@ const BooksService = {
     return {
       id: reviewData.id,
       rating: reviewData.rating,
-      book_id: reviewData.id,
+      book_id: reviewData.book_id,
       text: xss(reviewData.text),
       user: reviewData.user || {},
       date_created: reviewData.date_created,
