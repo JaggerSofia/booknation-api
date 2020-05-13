@@ -48,8 +48,9 @@ const BooksService = {
         'rev.date_created',
         ...userFields,
       )
-      .where('rev.id', id)
-      .leftJoin(
+      .where('booknation_books.id', id)
+      .innerJoin('booknation_books', 'rev.book_id', 'booknation_books.id')
+      .innerJoin(
         'booknation_users AS usr',
         'rev.user_id',
         'usr.id',
