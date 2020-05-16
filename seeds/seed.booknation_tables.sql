@@ -6,14 +6,14 @@ TRUNCATE
   booknation_users
   RESTART IDENTITY CASCADE;
 
-INSERT INTO booknation_users (user_name, full_name, nickname, password)
+INSERT INTO booknation_users (user_name, full_name, password)
 VALUES
-  ('dunder', 'Dunder Mifflin', null, '$2a$12$XDX3Kp6DyFwX.LNLrSPrjelYwC/YQNkG7TEHS01h7hYr2DT.AJY2m'),
-  ('b.deboop', 'Bodeep Deboop', 'Bo', '$2a$12$lveEIJ2eddiT.0S9Ral4AesL/47WVZ0r4KtUKkQPgOcJ2SwOFB/CW'),
-  ('c.bloggs', 'Charlie Bloggs', 'Charlie', '$2a$12$BGXlSJEr4Gle2dbFz9Tmg.bHPqMelisxrN0i.hXyyitSUFuDOAsnm'),
-  ('s.smith', 'Sam Smith', 'Sam', '$2a$12$GhYHEvNILSR5STahE35ebO/lJZw3P.OBGeDsmDUEitpL4B4WwVC4.'),
-  ('lexlor', 'Alex Taylor', 'Lex', '$2a$12$mGvgMii0KQCZm4MOy8scj./O.W2vMl6Xwax/TnZzvzEdciIlHjW8W'),
-  ('wippy', 'Ping Won In', 'Ping', '$2a$12$79Pjv2VAGc3jHcmu9QPrfeVuF.PtXOIbnPNLCULAZVeqQW/TbXusy');
+  ('dunder', 'Dunder Mifflin', '$2a$12$XDX3Kp6DyFwX.LNLrSPrjelYwC/YQNkG7TEHS01h7hYr2DT.AJY2m'),
+  ('b.deboop', 'Bodeep Deboop', '$2a$12$lveEIJ2eddiT.0S9Ral4AesL/47WVZ0r4KtUKkQPgOcJ2SwOFB/CW'),
+  ('c.bloggs', 'Charlie Bloggs', '$2a$12$BGXlSJEr4Gle2dbFz9Tmg.bHPqMelisxrN0i.hXyyitSUFuDOAsnm'),
+  ('s.smith', 'Sam Smith', '$2a$12$GhYHEvNILSR5STahE35ebO/lJZw3P.OBGeDsmDUEitpL4B4WwVC4.'),
+  ('lexlor', 'Alex Taylor', '$2a$12$mGvgMii0KQCZm4MOy8scj./O.W2vMl6Xwax/TnZzvzEdciIlHjW8W'),
+  ('wippy', 'Ping Won In', '$2a$12$79Pjv2VAGc3jHcmu9QPrfeVuF.PtXOIbnPNLCULAZVeqQW/TbXusy');
 
 INSERT INTO booknation_books (title, image, user_id, content)
 VALUES
