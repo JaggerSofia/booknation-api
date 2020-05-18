@@ -19,6 +19,7 @@ booksRouter
   .all(requireAuth)
   .all(checkBookExists)
   .get((req, res) => {
+    console.log(res.book)
     res.json(BooksService.serializeBook(res.book))
   })
 
