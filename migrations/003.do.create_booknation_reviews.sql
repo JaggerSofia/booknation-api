@@ -6,5 +6,5 @@ CREATE TABLE booknation_reviews (
     book_id INTEGER
         REFERENCES booknation_books(id) ON DELETE CASCADE NOT NULL,
     user_id INTEGER
-        REFERENCES booknation_users(id) ON DELETE CASCADE NOT NULL
+        REFERENCES booknation_users(id) ON DELETE CASCADE
 );
