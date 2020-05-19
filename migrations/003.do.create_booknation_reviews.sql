@@ -5,6 +5,6 @@ CREATE TABLE booknation_reviews (
     date_created TIMESTAMP DEFAULT now() NOT NULL,
     book_id INTEGER
         REFERENCES booknation_books(id) ON DELETE CASCADE NOT NULL,
-    user_id INTEGER
-        REFERENCES booknation_users(id) ON DELETE CASCADE NOT NULL
+    -- user_id INTEGER
+    --     REFERENCES booknation_users(id) ON DELETE CASCADE NOT NULL
 );
