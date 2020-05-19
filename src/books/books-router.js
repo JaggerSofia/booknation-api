@@ -1,6 +1,5 @@
 const express = require('express')
 const BooksService = require('./books-service')
-// const { requireAuth } = require('../middleware/jwt-auth')
 
 const booksRouter = express.Router()
 
@@ -16,7 +15,6 @@ booksRouter
 
 booksRouter
   .route('/:id')
-  // .all(requireAuth)
   .all(checkBookExists)
   .get((req, res) => {
     console.log(res.book)
@@ -24,7 +22,6 @@ booksRouter
   })
 
 booksRouter.route('/:id/reviews/')
-  // .all(requireAuth)
   .all(checkBookExists)
   .get((req, res, next) => {
     BooksService.getReviewsForBook(

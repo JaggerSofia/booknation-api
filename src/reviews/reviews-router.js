@@ -1,14 +1,13 @@
 const express = require('express')
 const path = require('path')
 const ReviewsService = require('./reviews-service')
-// const { requireAuth } = require('../middleware/jwt-auth')
 
 const reviewsRouter = express.Router()
 const jsonBodyParser = express.json()
 
 reviewsRouter
   .route('/')
-  .post(/*requireAuth,*/ jsonBodyParser, (req, res, next) => {
+  .post(jsonBodyParser, (req, res, next) => {
     const { book_id, rating, text } = req.body
     const newReview = { book_id, rating, text }
 
